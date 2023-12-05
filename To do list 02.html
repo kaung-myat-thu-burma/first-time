@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>To do list</title>
+
+
+<style type="text/css">
+	
+
+
+body { margin:0;
+       padding:0;
+       background:rgba(150,00,255,1);
+
+       height:100vh;
+       display:flex;
+       justify-content:center;
+       align-items:center;
+       flex-direction:column;
+       user-select: none;}
+
+.list { background:rgba(00,00,255,.25);
+        border-top:20px solid rgba(255,255,255,.5); }
+
+h2 { color:white;
+     font-family:"Arial";
+     border-bottom:3px solid white;
+     text-align:center;
+     padding-bottom:10px; }
+
+
+label { display:block;
+        margin:20px;
+        margin-bottom:30px;
+        color:white;
+        font-family:"Consolas";
+        position: relative;
+         }
+
+
+input[type="checkbox"] { -webkit-appearance:none; }
+
+
+.list i { position:absolute;
+          top:3px;
+          width:20px;
+          height:15px;
+          border:2px solid white;
+          margin-right:5px; }
+
+
+
+.list span { margin-left:40px;
+             position:relative; }
+
+
+input[type = "checkbox"]:checked ~ i { 
+
+border-top: none;
+border-right: none;
+transform: rotate(-45deg);
+
+ }
+
+
+.list span:before { position:absolute;
+                    top:50%;
+                    transform:translateY(-50%) scaleX(0);
+                    width:100%;
+                    height:1.5px;
+                    background:white;
+                    content:'';
+                    transform-origin:left; }
+
+
+input[type="checkbox"]:checked ~ span:before {
+
+transform: translateY(-50% ) scaleX(1);
+transition:.15s linear;
+} 
+
+
+input[type = "checkbox"]:checked ~ span { 
+
+color:rgba(255,255,255,.5);
+transition:.2s linear;
+
+ }
+
+
+
+
+
+
+</style>
+
+
+
+</head>
+<body>
+
+
+<div class = "list">
+
+<h2> Todo List </h2>
+
+
+
+<label>
+<input type = "checkbox">
+<i></i>  <span> Watering a plant </span>
+</label>
+
+<label>
+<input type = "checkbox">
+<i></i>  <span> Reading a book </span>
+</label>
+
+<label>
+<input type = "checkbox">
+<i></i>  <span> Listening to music </span>
+</label>
+
+<label> 
+<input type = "checkbox">
+<i></i>  <span> Doing my homework </span>
+</label>
+
+<label>
+<input type = "checkbox">
+<i></i>  <span> Drawing a picture </span>
+</label>
+
+
+</div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Button Ripple Effect</title>
+
+<style type="text/css">
+	
+* { margin:0;
+    padding:0; }
+
+body { height:100vh;
+       display:flex;
+       justify-content:center;
+       align-items:center;
+       background:rgba(25,150,225,1);
+       font-family:"Calibri";
+       text-align:center; }
+
+
+.wrapper { width:420px;
+           padding:20px 25px;
+           border-radius:10px;
+           background:white; }
+
+p { margin-top:5px;
+    font-size:20px; }
+
+
+.btns  { width:100%;
+         height:75px;
+         margin-top:10px;
+         display:flex;
+         justify-content: center;
+         align-items:center;
+          }
+
+
+.btns a { width:70px;
+           height:70px;
+           border-radius:75px;
+           width:250px;margin:0 15px;
+           text-align:center;
+           line-height:70px;
+           text-decoration:none;
+           font-size:30px;
+           color:white;
+           position:relative;
+           overflow:hidden;
+           user-select:none; }
+
+a:first-child { background:linear-gradient(90deg,royalblue,rgba(00,100,250,1)); }
+a:last-child { background:linear-gradient(90deg,orange,orangered); }
+
+
+.btns a span { position:absolute;
+               transform:translate(-50%,-50%);
+               background:rgba(175,175,175,1);
+               width:500px;
+               height:500px;
+               border-radius:50%; 
+               animation:animate .5s linear infinite;}
+
+@keyframes animate { from{ opacity:1; width:0;height:0; } 
+                       to{opacity:0; width:500px; height:500px;}}
+
+
+
+</style>
+
+</head>
+<body>
+
+<div class = "wrapper">
+ <h2> Button Ripple Effect </h2>
+ <p> Using HTML,CSS & Javascript</p>
+
+ <div class = "btns">
+ 	<a href = "#"> Click Me </a>
+ 	<a href = "#"> Click Me </a>
+ </div>
+
+
+</div>
+
+<script type="text/javascript">
+    
+var buttons = document.querySelectorAll("a");
+
+buttons.forEach(btn=>{
+btn.addEventListener("click",e=>{
+var x = e.clientX - e.target.offsetLeft;
+var y = e.clientY - e.target.offsetTop;
+
+var ripple = document.createElement("span");
+btn.appendChild(ripple);
+ripple.style.left = x + 'px';
+ripple.style.top = y + "px";
+
+console.log(e.target.offsetTop + " " + e.target.offsetLeft);
+console.log(x + " " + y);
+setTimeout(()=>{
+ripple.remove();
+
+},500)
+
+})
+
+})
+
+</script>
+
+
+</body>
+</html>

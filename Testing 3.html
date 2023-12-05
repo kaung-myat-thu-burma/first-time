@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Testing 03</title>
+
+<style type="text/css">
+	
+* {margin:0;
+    padding:0;}
+
+body { height:100vh;
+        }
+
+ul { background:rgba(150,150,150,1);
+     width:100%;
+     height:100%;
+     display:flex;
+     flex-wrap:wrap;
+     justify-content:center;
+     align-items:center;
+      }
+
+
+li { list-style-type:none;
+	margin:5px 15px;
+	background:rgba(150,150,150,1);
+	box-shadow:inset -2px 2px 1.5px white,inset 2px -2px 1.5px rgba(75,75,75,1);
+	color:white;
+	padding:10px 15px;
+	border-radius:10px;
+	font-family:"Calibri";
+
+  }
+
+
+
+</style>
+
+</head>
+<body>
+
+
+<ul> 
+
+    <li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+
+    <li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+
+    <li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+
+	<li> list content </li>
+	<li> list content </li>
+
+    <li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+    <li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+    <li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+	<li> list content </li>
+
+
+
+</ul>
+
+
+<script type="text/javascript">
+var li = document.querySelectorAll("li");
+var list = [];
+for(var x = 0; x <li.length; x++){
+list.push(li[x]);
+}
+function key(){    
+setInterval(()=>{
+var r = Math.round(Math.random()*255);
+var g = Math.round(Math.random()*255);
+var b = Math.round(Math.random()*255);
+this.style.background = `rgba(${r},${g},${b},1)`;
+},100);
+}
+for(var x = 0; x<list.length; x++){
+key.call(list[x]);
+}
+</script>
+
+
+</body>
+</html>

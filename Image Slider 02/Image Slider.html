@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Image Slider</title>
+<link rel="stylesheet" type="text/css" href="file:///C:/Users/USER/Desktop/Needs/fontawesome-free-6.2.0-web/css/all.css">
+<style type="text/css">
+	
+* { margin:0;
+    padding:0; }
+
+body { background:black; }
+
+.container { width:100%;
+             height:100%;
+             position: absolute;
+             overflow: hidden;
+             user-select:none; }
+
+.left-slide { width:35%;
+              height:100%;
+              position: absolute;
+              left: 0;
+              top: 0;
+               transition: .2s linear;}
+
+.right-slide { width:65%;
+                height:100%;
+                position:absolute;
+                left:35%;
+                top:0;
+                margin:0;
+                padding:0;
+                transition:.2s linear; }
+
+.right-slide img { width:100%;
+                   height:100%;margin: 0; }
+
+
+.left-slide div { width:100%;
+                  height:100%;
+
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              font-family:"Segoe Ui";
+              color:rgba(0,0,0,.75); }
+
+h2 { font-size:35px;
+     font-weight: 600; }
+
+p { margin-top:10px; }
+
+
+.slide { width:45px;
+         height:45px;
+         position:absolute;
+         top:50%;
+         left:35%; }
+
+.slide span { width:100%;
+             height:100%;
+             font-size:25px;
+             text-align:center;
+             line-height:45px;}
+
+.slide { border:2px solid black; }
+
+
+.up  { transform:translateY(-100%);
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px; }
+ .down { transform: translateX(-100%);
+ border-top-left-radius:5px;
+ border-bottom-left-radius:5px; }
+
+
+</style>
+
+</head>
+<body>
+
+
+<div class = "container">
+
+<div class = "left-slide">
+
+<div style = "background:rgba(75,255,100,1);">
+<h2> Forrest Gump</h2>
+<p> I'm not a smart man.</p>
+</div>
+
+<div style = "background:rgba(255,200,175,1);">
+<h2> Mother of Dragons</h2>
+<p> Smoke weed everyday.</p>
+</div>
+<div style = "background:rgba(255,75,50,1);">
+<h2> Crying Man</h2>
+<p> I'm feeling sad.</p>
+</div>
+<div style = "background:rgba(200,150,125,1);">
+<h2> Guy of Love</h2>
+<p> She looked at me.</p>
+</div>
+
+<div style = "background:rgba(200,200,50,1);">
+<h2>Showing Man </h2>
+<p> I'm not a girl,see.</p>
+</div>
+
+</div>
+
+
+<div class = "right-slide">
+<img src = "Img 1.jpg">
+<img src = "Img 2.jpg">
+<img src = "Img 3.jpg">
+<img src = "Img 4.jpg">
+<img src = "Img 5.jpg">
+</div>
+
+	<div class = "slide up">
+		<span class = "fas fa-arrow-up"></span>
+	</div>
+
+	<div class = "slide down">
+		<span class = "fas fa-arrow-down"></span>
+	</div>
+
+
+
+
+</div>
+
+
+
+
+<script type="text/javascript">
+	
+var images   = document.querySelectorAll("img");
+var theUp    = document.querySelector(".up");
+var theDown  = document.querySelector(".down");
+var slideLeft = document.querySelector(".left-slide");
+var slideRight = document.querySelector(".right-slide");
+var index = 0;
+slideLeft.style.top = "-400%";
+theUp.addEventListener("click",()=>{changeImg("up")});
+theDown.addEventListener("click",()=>{ changeImg("down")});
+
+function changeImg(input) {
+
+var containerHeight = slideRight.clientHeight;
+console.log(containerHeight);
+
+if(input == "up"){
+
+index ++;console.log(index)
+
+if(index > images.length-1) { index = 0;}
+
+}
+
+
+if(input == "down"){ index --;  if(index < 0 ){ index = images.length -1;}}
+
+slideLeft.style.transform = `translateY(${index *containerHeight }px)`;
+slideRight.style.transform = `translateY(-${index * containerHeight}px)`;
+
+
+
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Custom Emoji Range Slider</title>
+
+<style type="text/css">
+	
+* { margin:0;
+    padding:0; }
+
+body { height:100vh;
+       display:flex;
+       justify-content:center;
+       align-items:center;
+       background:linear-gradient(45deg,purple,darkblue); }
+
+.wrapper { padding:20px 30px;
+	        border-radius:10px;
+	        max-width:350px;
+	        width:100%;
+	        display:flex;
+	        justify-content:center;
+	        align-items:center;
+	        background:rgba(150,150,150,1);
+	        flex-direction:column;
+            }
+
+
+.wrapper .section { width:150px;
+                    height:150px;
+                    border-radius:5px;
+                    background:rgba(150,150,150,1);
+                    overflow:hidden;}
+
+
+.wrapper .section .emoji li { list-style-type:none; 
+                              width:100%;
+                              height:20%; }
+
+.wrapper .section .emoji li  img { width:100%; 
+                               height:100%; }
+
+.wrapper .slider { position:relative;
+                   width:100%;
+                   height:12px;
+                   background:rgba(100,100,100,1);
+                   border-radius:15px;
+                   margin-top:40px; }
+
+
+.wrapper .slider input { position:absolute;
+                         top:0;
+                         left:0;
+                         width:100%;
+                         height:100%;
+                         -webkit-appearance:none;
+                         outline:none;
+                         background:none; }
+
+
+.wrapper .slider input::-webkit-slider-thumb { 
+
+-webkit-appearance:none;
+width:25px;
+height:25px;
+background:none;
+z-index:99;
+cursor:pointer;
+
+ }
+
+.wrapper .slider .emoji { height:500%;
+                          display:flex;
+                          flex-direction:column; }
+
+
+.wrapper .slider .thumb { width:25px;
+	                       height:25px;
+                          background:rgba(00,150,200,1);
+                          position:absolute;
+                          top:50%;
+                          transform:translate(-50%,-50%);
+                          border-radius:50%;
+                          cursor:pointer;
+                          z-index:1;
+                          padding:2px; }
+
+
+.wrapper .slider .thumb span { width:80%;
+                                height:80%;
+                                border-radius:50%;
+                                border:2px solid white;
+                                background:rgba(00,150,200,1);
+                                display:block;
+                                position:absolute;
+                                top:50%;
+                                left:50%;
+                                transform:translate(-50%,-50%); }
+
+.wrapper .slider .progress { width:50%;
+                             height:100%;
+                             background:royalblue;
+                             border-radius:15px; }
+
+
+</style>
+
+</head>
+<body>
+
+<div class = "wrapper">
+
+<div class = "section">
+	<div class = "emoji">
+		<li class = "slide"> <img src = "image1.jpg" > </li>
+		<li> <img src = "image2.jpg"> </li>
+		<li> <img src = "image3.jpg"> </li>
+		<li> <img src = "image4.jpg"> </li>
+		<li> <img src = "image5.jpg"> </li>
+	</div>
+
+</div>
+
+<div class = "slider">
+	<div class = "progress"></div>
+	<div class = "thumb">  <span> </span> </div>
+   <input type = "range" min = "0"  max = "100" value = "50">
+</div>
+
+
+</div>
+
+
+<script type="text/javascript">
+
+
+var slider = document.querySelector("input");
+var bar    = document.querySelector(".progress");
+var thumb  = document.querySelector(".thumb");
+var slide  = document.querySelector(".slide");
+
+slider.addEventListener("input",()=>{
+
+var val = slider.value;
+
+bar.style.width =  val + "%";
+thumb.style.left = val + "%";
+
+
+
+if( val <20) { slide.style.marginTop = "0%"}
+if(val>=20 ) { slide.style.marginTop = "-150px"}
+if(val>=40) { slide.style.marginTop = "-300px"}
+if(val>=60) { slide.style.marginTop = "-450px"}
+if(val >80) { slide.style.marginTop = "-600px"}
+
+
+})
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

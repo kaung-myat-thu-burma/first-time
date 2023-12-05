@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Caculator 2</title>
+
+<style type="text/css">
+	
+* { margin:0;
+     padding:0; }
+
+body { height:100vh;
+       display:grid;
+       place-items:center;
+       background:royalblue; }
+
+.caculator { width:330px;
+             padding:40px 30px;
+             border-radius:15px; 
+             box-shadow:inset 3px 3px 7px rgba(50,50,50,1),
+                         inset -2px -2px 3px white;}
+
+.display { width:100%;
+           height:66px;
+           border-radius:5px;
+           box-shadow:inset 2px 2px 3px rgba(50,50,50,1),
+                      inset -2px -2px 1.5px white;
+                      display:grid;
+                      place-items:center; }
+
+.display  input { width:calc(95%);
+                  height:100%;
+                  border:none;
+                  outline:none;
+                  background:none;
+                  text-align:right;
+                  font-size:45px;
+                  font-family:"Consolas";
+                  color:white;}
+
+.buttons { margin-top:25px; }
+
+.buttons input[type = "button"]{
+
+width:65px;
+height:65px;
+margin:5.5px;
+border-radius:3px;
+background:royalblue;
+outline:none;
+border:none;
+box-shadow:2px 2px 3px black,-2px -2px 3px white;
+color:white;
+font-size:40px;
+
+
+}
+
+.buttons input[type="button"]:active { transform:scale(.9);transition:.2s linear; }
+
+
+</style>
+
+</head>
+<body>
+
+<div class = "caculator">
+
+
+<form action = "#" name = "form">
+
+<div class = "display">
+	<input type = "text" name = "disp">
+</div>
+
+<div class = "buttons">
+<div class = "rows">
+	<input type = "button"  value = "7" name = "v7"  onclick = "val(v7.value)">
+	<input type = "button"  value = "8" name = "v8"  onclick = "val(v8.value)">
+	<input type = "button"  value = "9" name = "v9"  onclick = "val(v9.value)">
+	<input type = "button"  value = "+" name = "add"  onclick = "val(add.value)">
+</div>
+
+<div class = "rows">
+	<input type = "button"  value = "4" name = "v4"  onclick = "val(v4.value)">
+	<input type = "button"  value = "5" name = "v5"  onclick = "val(v5.value)">
+	<input type = "button"  value = "6" name = "v6"  onclick = "val(v6.value)">
+	<input type = "button"  value = "-" name = "sub"  onclick = "val(sub.value)">
+</div>
+
+<div class = "rows">
+	<input type = "button"  value = "1" name = "v1"  onclick = "val(v1.value)">
+	<input type = "button"  value = "2" name = "v2"  onclick = "val(v2.value)">
+	<input type = "button"  value = "3" name = "v3"  onclick = "val(v3.value)">
+	<input type = "button"  value = "*" name = "mul"  onclick = "val(mul.value)">
+</div>
+
+<div class = "rows">
+	<input type = "button"  value = "0" name = "zero"  onclick = "val(zero.value)">
+	<input type = "button"  value = "." name = "dot"  onclick = "val(dot.value)">
+	<input type = "button"  value = "/" name = "div"  onclick = "val(div.value)">
+	<input type = "button"  value = "=" name = "eql"  onclick = "caculate()">
+</div>
+</div>
+</form>
+</div>
+
+
+<script type="text/javascript">
+	
+
+function val(result){
+
+form.disp.value = form.disp.value + result;
+
+
+}
+
+var button = form.eql;
+function caculate(){
+if(form.disp.value == '') { alert("Please!Enter..")}
+	else{
+form.disp.value = eval(form.disp.value);
+}
+}                 
+
+button.addEventListener("dblclick",()=>{
+
+form.disp.value = "";
+
+})
+
+</script>
+
+</body>
+</html>

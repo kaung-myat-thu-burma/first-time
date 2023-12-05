@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Color Generator</title>
+
+<style type="text/css">
+	
+* { margin:0;
+    padding:0; }
+
+body { height:100vh;
+       }
+
+.container { position:relative;
+             width:100%;
+             height:100%;
+             background:rgba(150,150,150,1); }
+
+.colors { position:absolute;
+           display:grid;
+           width:100%;
+           height:eval(100% - 30px);
+           top:0;
+           left:0;
+           grid-template-rows:repeat(5,100px);
+           grid-template-columns:repeat(6,200px);
+          }
+
+
+.colors div { background:white;
+              margin:10px;
+              border-radius:10px;
+              box-shadow:inset 0 0 15px black; }
+
+button { position:absolute;
+         bottom:25px;
+         left:50%;
+         transform:translate(-50%,0);
+         padding:10px 25px;
+         border-radius:10px;
+         outline:none;
+         border:none;
+         box-shadow:inset 0 0 2px black,inset 0 0 10px black,inset 0 0 5px black;}
+
+
+
+</style>
+
+</head>
+<body>
+
+
+<div class = "container">
+<div class = "colors">
+<div></div>  <div></div> 
+<div></div>  <div></div> 
+<div></div>  <div></div> 
+<div></div>  <div></div> 
+<div></div>  <div></div> 
+
+<div></div>  <div></div> 
+<div></div>  <div></div> 
+<div></div>  <div></div> 
+<div></div>  <div></div> 
+<div></div>  <div></div> 
+
+<div></div>  <div></div> 
+<div></div>  <div></div> 
+<div></div>  <div></div> 
+<div></div>  <div></div> 
+<div></div>  <div></div> 
+
+</div>
+ <button> generate </button>
+</div>
+
+
+
+<script type="text/javascript">
+	
+
+var color = document.querySelector(".colors");
+var div   = color.querySelectorAll("div");
+var btn   = document.querySelector("button");
+var lists = [];
+
+for(var x = 0; x < div.length ; x++){
+lists.push(div[x]);
+}
+
+btn.addEventListener("click",()=>{ function key(){
+var r = Math.round(Math.random()*255);
+var g = Math.round(Math.random()*255);
+var b = Math.round(Math.random()*255);
+
+this.style.background = `rgba(${r},${g},${b},1)`; }
+
+for(var x=0;x<lists.length;x++){
+	key.bind(lists[x])();
+}
+
+
+})
+
+console.log(lists)
+
+
+</script>
+
+
+</body>
+</html>

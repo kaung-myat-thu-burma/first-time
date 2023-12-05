@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>appendChild</title>
+
+<style type="text/css">
+	
+body { overflow:hidden;
+       background:darkblue; }
+
+.adding { animation:animate .8s linear 1;
+          position:absolute;
+          border-radius:50%; }
+
+@keyframes animate { 0%{ transform:scale(1) }
+                     50%{transform:scale(.5)}
+                     100%  {transform: scale(0)} }
+
+</style>
+
+</head>
+<body>
+
+
+
+
+
+<script type="text/javascript">
+
+function append(){
+
+	
+var div = document.createElement("div");
+document.body.appendChild(div);
+
+var coloring = ["red","orange","lime","orangred","purple","orangered"];
+
+div.style.background = coloring[Math.round(Math.random()*(coloring.length-1))];
+div.classList.add("adding");
+var x = Math.floor(Math.random()*150)
+
+if(x<20) { x = 20 ;}
+div.style.width = x + "px";
+div.style.height = x + "px";
+
+div.style.top = Math.round(Math.random()*100) + "%";
+div.style.left = Math.round(Math.random()*100) + "%";
+
+setTimeout(()=>{
+
+div.classList.remove("adding");
+div.style.display = "none";
+
+},700)
+
+}
+
+
+
+setInterval(append,10)
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

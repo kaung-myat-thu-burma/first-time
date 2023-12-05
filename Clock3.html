@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Clock 3</title>
+
+<style class="clock-animate"></style>
+
+<style type="text/css"
+>
+	
+* {margin:0;
+   padding:0;
+   }
+
+
+body { height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center; 
+        background:rgba(50,175,255,1);}
+
+
+.clock { position:relative;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        width:400px;
+        height:400px;
+        border-radius:50%;
+        border:25px solid rgba(50,100,255,1);
+        background:white; }
+
+.clock:before { content:'';
+                position:absolute;
+                width:420px;
+                height:420px;
+                border-radius:50%;
+                border:5px solid black; }
+
+.clock:after { content:'';
+                position:absolute;
+                width:200px;
+                height:200px;
+                background:rgba(50,150,255,1);
+                border-radius:50%; }
+
+.center-nut { position:absolute;
+              width:30px;
+              height:30px;
+              background:black;
+              border-radius:50%;
+              z-index:10;
+               }
+
+.center-nut2 { position:absolute;
+               width:15px;
+               height:15px;
+               background:gold;
+               border-radius:50%;
+               z-index:20; }
+
+.indicators div { position:absolute;
+                  width:3px;
+                  height:20px;
+                  background:blue;
+                  z-index:7;
+                  }
+
+.indicators div:nth-child(1){ transform:rotate(0deg) translate(-50%,-175px); }
+.indicators div:nth-child(2){ transform:rotate(30deg) translate(-50%,-175px); }
+.indicators div:nth-child(3){ transform:rotate(60deg) translate(-50%,-175px);
+                              background:orangered; }
+.indicators div:nth-child(4){ transform:rotate(90deg) translate(-50%,-175px); }
+.indicators div:nth-child(5){ transform:rotate(120deg) translate(-50%,-175px); }
+.indicators div:nth-child(6){ transform:rotate(150deg) translate(-50%,-175px);
+                              background:orangered; }
+.indicators div:nth-child(7){ transform:rotate(180deg) translate(-50%,-175px); }
+.indicators div:nth-child(8){ transform:rotate(210deg) translate(-50%,-175px); }
+.indicators div:nth-child(9){ transform:rotate(240deg) translate(-50%,-175px);
+                              background:orangered; }
+.indicators div:nth-child(10){ transform:rotate(270deg) translate(-50%,-175px); }
+.indicators div:nth-child(11){ transform:rotate(300deg) translate(-50%,-175px); }
+.indicators div:nth-child(12){ transform:rotate(330deg) translate(-50%,-175px);
+                              background:orangered; }
+
+
+.min-hand,.min, .sec-hand ,.sec, .hr-hand,.hr { position:absolute;
+                                  display:flex;
+                                  justify-content:center;
+                                  align-items:center; }
+
+.min-hand, .min { position:absolute;
+                  width:300px;
+                  height:300px;
+                  z-index:5; }
+
+.sec-hand , .sec { position:absolute;
+                   width:350px;
+                   height:350px;
+                   z-index:6; }
+
+.hr-hand , .hr { position:absolute;
+                 width:150px;
+                 height:150px;
+                 z-index:4; }
+
+.sec:before { content:'';
+             position:absolute;
+             width:5px;
+             height:225px;
+             background:royalblue;
+             border-radius:5px 5px 0 0;
+             transform:translate(0%,-50px); }
+
+.sec:after { content:'';
+             position:absolute;
+             width:12px;
+             height:50px;
+             background:royalblue;
+             transform: translate(0%,75px);
+             border-radius:12px 12px 50px 50px;
+
+              }
+
+
+.hr:before { content:'';
+              position:absolute;
+              width:0;
+              height:0;
+              border-left:4px solid transparent;
+              border-right:4px solid transparent;
+              border-bottom:75px solid red;
+              transform: translateY(-75px) }
+
+.hr:after { content:'';
+              position:absolute;
+              width:0;
+              height:0;
+              border-left:4px solid transparent;
+              border-right:4px solid transparent;
+              border-top:40px solid red;
+              transform:translateY(-18px); }
+
+.min:before { content:'';
+              position:absolute;
+              width:0;height:0;
+              border-left:4px solid transparent;
+              border-right:4px solid transparent;
+              border-bottom:100px solid orangered;
+              transform:translateY(-100px); }
+
+.min:after { content:'';
+             position:absolute;
+             width:0;
+             height:0;
+             border-left:4px solid transparent;
+             border-right:4px solid transparent;
+             border-top:71px solid orangered;
+             transform: translateY(-15px); }
+
+</style>
+
+</head>
+<body>
+
+<div class = "clock">
+<div class = "center-nut"> </div>
+<div class = "center-nut2"></div>
+
+<div class = "indicators">
+
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</div>
+
+<div class = "sec-hand"> <div class = "sec"> </div> </div>
+<div class = "min-hand"> <div class = "min"> </div> </div>
+<div class = "hr-hand" > <div class = "hr" > </div> </div>
+
+
+
+</div>
+
+
+<script type="text/javascript">
+	
+var sec = document.querySelector(".sec-hand");
+var min = document.querySelector(".min-hand");
+var hr = document.querySelector(".hr-hand");
+
+setInterval(()=>{
+
+var time = new Date();
+var secs = time.getSeconds()* 6;
+var mins = time.getMinutes()* 6 ;
+var hrs = time.getHours() * 30;
+
+sec.style.transform = `rotateZ(${secs}deg)`;
+min.style.transform = `rotateZ(${mins}deg)`;
+hr.style.transform = `rotateZ(${hrs + (mins/12)}deg)`;
+
+})
+</script>
+
+
+</body>
+</html>

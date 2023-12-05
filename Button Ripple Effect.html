@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Button Ripple Effect</title>
+<style type="text/css">
+	
+* { margin:0;
+    padding:0; }
+
+body { height:100vh;
+       display:flex;
+       justify-content:center;
+       align-items:center; }
+
+.wrapper { width:850px;
+            height:500px;
+            background:none;
+            border-radius:15px;
+            box-shadow:0 0 5px black;
+            position:relative;
+            overflow:hidden; }
+
+.wrapper .span { width:800px;
+                height:800px;
+                border-radius:50%;
+                position:absolute;
+                transform:translate(-50%,-50%);
+                animation:animate .5s linear; }
+
+
+@keyframes animate { 0%{ width:0;height:0; opacity:1; }
+                       50% { width:400px;height:400px; opacity:1; }
+                     100% { width:800px; height:800px;opacity:0 } }
+
+
+</style>
+
+</head>
+<body>
+
+<div class = "wrapper">
+
+
+</div>
+
+<script type="text/javascript">
+	
+var div = document.querySelector("div");
+
+function rippleEffect(e){
+
+var le = e.clientX - e.target.offsetLeft;
+var to  = e.clientY - e.target.offsetTop;
+var r = Math.round(Math.random()*255);
+var g = Math.round(Math.random()*255);
+var b = Math.round(Math.random()*255);
+
+var span =  document.createElement("span");
+div.appendChild(span);
+span.classList.add("span");
+span.style.left =  le + "px";
+span.style.top  = to + "px";
+span.style.background =  `rgba(${r},${g},${b},1)`;
+setTimeout(()=>{span.classList.remove("span")},450)
+
+}
+
+
+
+div.addEventListener("click",rippleEffect)
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>emoji range slider 3</title>
+
+<style type="text/css">
+	
+
+* { margin:0;
+    padding:0; }
+
+body  { height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:linear-gradient(45deg,orangered,red); }
+
+.wrapper { background:rgba(150,150,150,1);
+           border-radius:10px;
+           padding:20px 40px; 
+           max-width:400px;
+           display:flex;
+           
+           flex-direction:column; }
+
+
+.section { width:200px;
+           height:200px;
+           overflow:hidden; }
+             }
+
+.emojis { width:100%;
+           height:500%;
+           display:flex;
+           flex-direction:column; }
+
+.section .emojis li { width:100%;
+                      height:20%;
+                      list-style-type:none;
+                      background:url("image1.jpg");
+                       }
+
+
+.wrapper .slider { width:100%;
+                   height:10px;
+                   background:rgba(00,75,150,1);
+                   margin-top:30px; 
+                   position:relative;
+                   border-radius:15px;}
+
+.wrapper .slider input { position:absolute;
+                         width:100%;
+                         height:100%;
+                         -webkit-appearance:none;
+                         outline:none;
+                         background:none; }
+
+
+.wrapper .slider input::-webkit-slider-thumb { 
+
+-webkit-appearance:none;
+width:15px;
+height:15px;
+z-index:3333;
+ }
+
+.slider .progress { height:100%;
+                    width:50%;
+                    background:linear-gradient(90deg,red,orangered);
+                    border-radius:15px; }
+
+.wrapper .slider .thumb { position:absolute;
+                          top:50%;
+                          left:50%;
+                          transform:translate(-50%,-50%);
+                          width:18px;
+                          height:18px;
+                          z-index:3;
+                          background:white;
+                          border-radius:50%;
+                           }
+
+
+
+
+</style>
+
+</head>
+<body>
+
+<div class = "wrapper">
+
+<div class = "section">
+    <div class = "emojis">
+    	<li class = "first"></li>
+    	<li>  </li>
+    	<li>  </li>
+    	<li>  </li>
+    	<li>  </li>
+    </div>
+</div>
+
+<div class = "slider">
+    <input type = "range" min = "0"  max = "100" value = "50">
+<div class = "thumb">  </div>
+<div class = "progress"></div>
+
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+	
+
+var input = document.querySelector("input");
+var thumb = document.querySelector(".thumb");
+var progress = document.querySelector(".progress");
+var first  = document.querySelector(".first");
+input.addEventListener("input",()=>{
+progress.style.width = input.value + "%";
+thumb.style.left  = input.value + "%";
+
+if(input.value < 20) { first.style.marginTop = "0";}
+if(input.value >= 20) { first.style.marginTop = "-200px";}
+if(input.value >= 40) { first.style.marginTop = "-400px";}
+if(input.value >= 60) { first.style.marginTop = "-600px";}
+if(input.value > 80) { first.style.marginTop = "-800px";}
+
+})
+
+
+</script>
+
+
+</body>
+</html>

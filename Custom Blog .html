@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Custom Blog</title>
+	<link rel="stylesheet" type="text/css" href="file:///C:/Users/USER/Desktop/Needs/fontawesome-free-6.2.0-web/css/all.css">
+<style type="text/css">
+	
+*{ margin:0;
+   padding:0; }
+
+body { height:100vh; }
+
+:root { --header-color:#4dff88;
+        --hover-color:#99ffbb;
+        --icon-color:#00cc66;
+        --icon-hover:#009933;
+        --h1-color:#00b359;
+        --h1-span-color:#ff7733;
+        --btn-color:#00b300;
+        --p-color:#009933;}
+
+
+header { background:var(--header-color);
+         display:flex;
+         width:100%;
+         height:70px;
+         align-items: center;
+         justify-content: space-between;}
+
+header div.logo {color:white;
+	             height:100%;
+	             margin:0 30px;
+	             width:100px;
+	             display:grid;
+	             place-items:center;
+	             font-family:"Arial Black";
+	             text-transform:uppercase;
+              }
+
+header nav { width:70%;
+	         height:100%;
+              }
+
+header nav ul { display:flex;
+	            height:100%; }
+
+header nav ul li {flex:1 1 auto;
+                   display:grid;
+                   place-items:center;        
+           margin:0 10px;}
+
+header nav ul li:hover { background:var(--hover-color);}
+
+header nav ul li a { text-decoration:none;
+                     font-family:"Calibri";
+                     font-size:20px;
+                     font-weight:900;
+                     color:white;}
+
+section { display:flex;
+           width:100%;
+           height:calc(100% - 70px);
+           flex-direction:row; }
+
+section .content { flex: 1 1 auto;
+                    display:flex;
+                    justify-content:center;
+                    align-items:flex-start;
+                    flex-wrap:wrap;
+                    flex-direction:column;
+                    padding:20px;
+                    max-width:50%; }
+section .image { flex:2 1 auto; }
+section .image img { width:100%; }
+
+
+.icons a { font-size:30px;
+          color:var(--icon-color);
+          margin:0 7px; }
+
+.icons a:hover {color:var(--icon-hover); 
+                }
+
+.content h1 { font-family:"Arial";
+              font-size:50px;
+              font-weight:900;
+              color:var(--h1-color) }
+
+.content h1 span { color:var(--h1-span-color) }
+
+p { font-family:"Georgia";
+    font-weight:900;
+    margin:10px 0;
+    color:var(--p-color); }
+
+button { font-family:"Calibri";
+        padding:10px 25px;
+        border-radius:5px;
+        background:var(--btn-color);
+        color:white;
+        margin:15px 0 0;
+        border:none;
+        font-size:25px; }
+
+.menu { display:none; }
+
+@media(max-width:650px){
+
+.menu{display:block;
+       position:fixed;
+       top:0;
+right:0;
+margin:20px 50px;}
+
+
+nav { height:100%;
+      flex-direction:row;}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+<div class = "logo">
+	<h1><i> Logo</i> </h1>
+</div>
+
+<div class = "menu">
+        <i class = "fas fa-bars"></i>
+</div>
+
+
+<nav>
+	<ul>
+		<li><a href = "#"><i> Home</i></a></li>
+		<li><a href = "#"><i>Services</i></a></li>
+		<li><a href = "#"><i>Blogs </i></a></li>
+		<li><a href = "#"><i>Contact </i></a></li>
+		<li><a href = "#"><i>Footer </i></a></li>
+    </ul>
+</nav>
+</header>
+
+<section>
+<div class = "content">
+ <div class = "icons">
+ <a href = "#"><i class = "fa-brands fa-facebook"></i></a>
+ <a href = "#"><i class = "fa-brands fa-twitter"></i></a>
+ <a href = "#"><i class = "fa-brands fa-pinterest"></i></a>
+ <a href = "#"><i class = "fa-brands fa-linkedin"></i></a>
+ </div>
+<h1><i> Become a <span> Hero </span> </i></h1>
+
+<p> <i> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat.  </i> </p>
+
+<button > <i>Lets Get Started</i> </button>
+
+</div>
+
+<div class = "image">
+	<img src = "hulk.jpg">
+</div>
+
+
+</section>
+
+</body>
+</html>
